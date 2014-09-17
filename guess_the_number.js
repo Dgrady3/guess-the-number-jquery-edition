@@ -9,7 +9,9 @@ $(function(){
     event.preventDefault();
     var guess = +$('#an-input').val();
 
-
+    if (guess.typeof != 'number'){
+       $(".answer").text("Numeric inputs only please :)");
+    }
 
     if (guess == rando) {
       $(".answer").text(" Wowzers, you're good! And it only took you " + count +" guess(s)!");
@@ -28,13 +30,10 @@ $(function(){
       $(".answer").text(" was too high, try again...");
       count ++;
     }
-
-
 });
   $('form').on('reset', function(event){
     event.preventDefault();
     document.location.reload();
-
   });
 });
 
